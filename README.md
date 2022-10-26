@@ -34,7 +34,6 @@ npm test
 <img width="879" alt="Screenshot 2022-10-26 at 15 52 34" src="https://user-images.githubusercontent.com/5821127/198069705-c7c7f0b2-a158-4a71-aff2-e5f981144aef.png">
 <img width="1286" alt="Screenshot 2022-10-26 at 16 01 28" src="https://user-images.githubusercontent.com/5821127/198069805-6d0b9994-c145-42e9-a0d8-905b23c46e61.png">
 <img width="1272" alt="Screenshot 2022-10-26 at 16 01 11" src="https://user-images.githubusercontent.com/5821127/198069819-869a0106-4e2d-486f-85cc-bf43e5844eae.png">
-<img width="1291" alt="Screenshot 2022-10-26 at 16 00 35" src="https://user-images.githubusercontent.com/5821127/198069822-c82d8601-05db-4143-9dff-b28ae1de1da1.png">
 
 # steps to create this full stack app (Node / React / Typescript)
 
