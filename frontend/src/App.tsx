@@ -1,40 +1,59 @@
 import './App.css';
-
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { createOrder, getSchedule } from './services/orderService';
 
 function App() {
+  const titles = ['#', 'Time', 'Task', 'Recipient'];
+  const queryClient = useQueryClient();
+  const { data, isFetching } = useQuery(['getSchedule'], getSchedule);
+  const mutation = useMutation(createOrder, {
+    onSuccess: () => {
+      queryClient.invalidateQueries(['getSchedule']);
+    },
+  });
+
   return (
     <div className="App">
       <h3>Agrimetrics Italian Caffè Shop</h3>
       <br />
+      <Button onClick={() => mutation.mutate()} style={{ float: 'left' }}>
+        Create New Order
+      </Button>
+      <br />
+      <br />
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            {titles.map((title) => (
+              <th>{title}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Larry</td>
-            <td>Bird</td>
-            <td>@twitter</td>
-          </tr>
+          {isFetching ? (
+            <tr>
+              <td colSpan={4}>
+                <Spinner as="span" animation="border" role="status" aria-hidden="true" />
+                {' Loading...'}
+              </td>
+            </tr>
+          ) : data?.length === 0 ? (
+            <tr>
+              <td colSpan={4}>No Data</td>
+            </tr>
+          ) : (
+            data?.map(({ id, time, task, recipient }: any) => (
+              <tr key={id}>
+                <td>{id > 0 ? id : ''}</td>
+                <td>{time}</td>
+                <td>{task}</td>
+                <td>{recipient}</td>
+              </tr>
+            ))
+          )}
         </tbody>
       </Table>
     </div>
