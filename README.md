@@ -1,5 +1,27 @@
 # agrimetrics-order
+
 <img width="813" alt="Screenshot 2022-10-27 at 08 03 02" src="https://user-images.githubusercontent.com/5821127/198214022-11cfcf49-fde3-4b29-b9d3-fd0336f45bc0.png">
+
+## Fast Food Scenario
+
+Giovanni, who runs the Agrimetrics Italian Caffè, offers a handmade sandwich service. For a month’s worth of free coffees (so the stakes are high!), Giovanni has asked us to create an app for him that organises his sandwich orders and sequences what he should be doing. We would like you to help us make this app.
+We take an agile approach to software development, and this project is no exception. The first version of the app will be very simple but will provide us with a starting point to discuss with Giovanni what else he needs. From our initial conversations, we have identified that the first two pieces of functionality should be to accept sandwich orders from customers, and to provide a list of current tasks to Giovanni.
+We would like you to provide some code for managing the sandwich schedule. You can choose how to meet the requirement, and examples of what you could create include:
+• A library that can be called from a backend application;
+• A RESTful API that accepts and lists sandwich orders.
+
+## Requirements
+
+Giovanni has sent us some notes in an email: “Each handmade sandwich takes me 2½ minutes to make. It then takes me 1 minute to serve the sandwich and take payment. I take a break when there aren’t any orders to make or serve.”  
+The schedule must contain the sequence number, time, task, and recipient. For example, if Giovanni has three sandwich orders to prepare, the schedule should include information along these lines:
+
+1. 00:00 Make sandwich #1 for Stavros
+2. 02:30 Serve sandwich #1 for Stavros
+3. 03:30 Make sandwich #2 for Anisa
+4. 06:00 Serve sandwich #2 for Anisa
+5. 07:00 Make sandwich #3 for Adeel
+6. 09:30 Serve sandwich #3 for Adeel
+7. 10:30 Take a break.
 
 # How to run
 
@@ -7,6 +29,7 @@
 
 ```bash
 cd agrimetrics-order/backend
+npm install
 npm run dev
 ```
 
@@ -16,6 +39,7 @@ This will listen at 3003 port
 
 ```bash
 cd agrimetrics-order/frontend
+npm install
 npm start
 ```
 
@@ -39,28 +63,23 @@ npm test
 
 ## frontend
 
-- Create a simple react app that supports typescript
+- Create a simple react app with typescript
 
   ```bash
   npx create-react-app my-app --template typescript
-  ```
-
-- install bootstrap component library to have better look and feel
-
-  ```bash
-  npm install react-bootstrap bootstrap
   ```
 
 - dependencies
 
   - axios
   - bootstrap
+  - react-bootstrap
   - react-query
   - typescript
 
 ## backend
 
-- Create simple node express app that supports typescript
+- Create simple node express app with typescript
 
   ```bash
   npm init --yes
